@@ -1,4 +1,4 @@
-# Read7ZipStream
+# Wiki7ZipXmlDumpReader
 
 This project reads and parses Wikipedia dumps of the **complete edit history** very fast.
 
