@@ -1,4 +1,4 @@
-package us.elephanthunter;
+package us.elephanthunter.Wiki7ZipXmlDumpReader.Wiki7ZipXmlDumpReader;
 
 import java.io.IOException;
 import java.io.InputStream;

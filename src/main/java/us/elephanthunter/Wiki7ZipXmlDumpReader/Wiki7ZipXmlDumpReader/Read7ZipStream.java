@@ -1,4 +1,4 @@
-package us.elephanthunter;
+package us.elephanthunter.Wiki7ZipXmlDumpReader.Wiki7ZipXmlDumpReader;
 
 import org.apache.commons.compress.archivers.sevenz.SevenZArchiveEntry;
 import org.apache.commons.compress.archivers.sevenz.SevenZFile;
