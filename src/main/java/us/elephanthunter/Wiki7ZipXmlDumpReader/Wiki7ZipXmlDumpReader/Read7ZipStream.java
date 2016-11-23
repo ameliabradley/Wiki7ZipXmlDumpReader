@@ -62,12 +62,31 @@ public class Read7ZipStream {
     }
 
     public static void main(String[] args) {
+        if(args.length < 1) {
+          System.err.println("Must provide a valid file path as the first parameter; no argument given.");
+          System.exit(1);
+        }
+        if(args[0].length() < 1) {
+          System.err.println("Must provide a valid file path as the first parameter; empty argument given.");
+          System.exit(1);
+        }
+        // Example files:
+        // enwiki-20160501-pages-meta-history5.xml-p000564697p000565313.7z
+        // enwiki-20160501-pages-meta-history27.xml-p042663462p043423161.7z
         try {
-            // Small file
-            SevenZFile sevenZFile = new SevenZFile(new File("/Users/elephanthunter/Source/7Zip Stream Reader/files/enwiki-20160501-pages-meta-history5.xml-p000564697p000565313.7z"));
+            File zFile = new File(args[0]);
+            if( ! zFile.exists()) {
+                System.err.println("The file specified by the first parameter must exist, but does not.");
+                System.exit(1);
+            }
 
-            // Large file
-            //SevenZFile sevenZFile = new SevenZFile(new File("/Users/elephanthunter/Source/7Zip Stream Reader/files/enwiki-20160501-pages-meta-history27.xml-p042663462p043423161.7z"));
+            if( ! zFile.canRead()) {
+                System.err.println("The file specified by the first parameter must be readable, but can't be read.");
+                System.exit(1);
+            }
+
+            SevenZFile sevenZFile = new SevenZFile(zFile);
+
             final SevenZFileInputStream sevenZFileInputStream = new SevenZFileInputStream(sevenZFile);
 
             SevenZArchiveEntry tmpEntry = sevenZFile.getNextEntry();
